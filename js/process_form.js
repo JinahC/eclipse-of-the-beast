@@ -29,12 +29,6 @@ function offerHint(e) {
       "Enter a valid phone number (XXX-XXX-XXXX)"
     );
     spans[3].appendChild(sText);
-  } else if (id == "website") {
-    clearElement(spans[4]);
-    var sText = document.createTextNode(
-      "Enter a valid web address (must start with http:// and contain ~)"
-    );
-    spans[4].appendChild(sText);
   }
 }
 
@@ -90,17 +84,7 @@ function validateData(e) {
       spans[3].appendChild(ex);
       spans[3].appendChild(sText);
     } else spans[3].appendChild(checkmark);
-  } else if (id == "website") {
-    clearElement(spans[4]);
-    myRE = /^http:\/\/[A-Za-z\.]+\/~[A-Za-z]{2}[0-9]{6}\/?$/;
-    if (el.value.match(myRE) == null) {
-      var sText = document.createTextNode(
-        "You did not enter a valid website address"
-      );
-      spans[4].appendChild(ex);
-      spans[4].appendChild(sText);
-    } else spans[4].appendChild(checkmark);
-  }
+  } 
 }
 
 // returns true if all questions have an input and are in the correct format
@@ -163,15 +147,13 @@ function outputResults(e) {
   var lastName = document.getElementById("lastName");
   var email = document.getElementById("email");
   var phone = document.getElementById("phone");
-  var website = document.getElementById("website");
 
-  var inputs = [firstName, lastName, email, phone, website];
+  var inputs = [firstName, lastName, email, phone];
   var myRE = [
     /^[a-zA-Z]+$/,
     /^[a-zA-Z]+$/,
     /^[A-Za-z0-9]+@[A-Za-z]+[\.A-Za-z]+$/,
     /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/,
-    /^http:\/\/[A-Za-z\.]+\/~[A-Za-z]{2}[0-9]{6}\/?$/,
   ];
 
   console.log("..before the check");
@@ -195,16 +177,11 @@ function outputResults(e) {
     var phoneNum = document.createTextNode("phone: " + phone.value);
     pPhone.appendChild(phoneNum);
 
-    var pWebsite = document.createElement("p");
-    var wAddress = document.createTextNode("website: " + website.value);
-    pWebsite.appendChild(wAddress);
-
     console.log("the div is empty at this point");
 
     outputDiv.appendChild(name);
     outputDiv.appendChild(pEmail);
     outputDiv.appendChild(pPhone);
-    outputDiv.appendChild(pWebsite);
 
     console.log("the div has content (at least it should)");
 
@@ -284,11 +261,7 @@ function init() {
 
   var phone = document.getElementById("phone");
   phone.addEventListener("focus", offerHint, false);
-  phone.addEventListener("blur", validateData, false);
-
-  var website = document.getElementById("website");
-  website.addEventListener("focus", offerHint, false);
-  website.addEventListener("blur", validateData, false);
+  phone.addEventListener("blur", validateData, false)
 
   var submit = document.getElementById("submitButton");
   submit.addEventListener("click", outputResults, false);
