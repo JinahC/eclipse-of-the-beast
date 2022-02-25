@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Survey - Fridjinah Francois</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/process_form.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <nav>
+          <ul>
+            <li>eclipse of the beast quiz</li>
+            <li>find out what beast you are</li>
+            <li>get a cool badge</li>
+          </ul>
+        </nav>
+      </div>
+      <div class="content">
+        <div class="content-input" id="input">
+          <!-- page heading -->
+          <header>
+            <h1>Eclipse of the Beast</h1>
+          </header>
+          <form name="theForm">
+            <!-- user info -->
+            <fieldset id="userInfo">
+              <legend>Personal Info</legend>
+
+              <div class="userInput">
+                <label for="firstName">First Name</label><br />
+                <input type="text" name="firstName" value="" id="firstName" />
+                <span></span><br />
+              </div>
+
+              <div class="userInput">
+                <label for="lastName">Last Name</label><br />
+                <input type="text" name="lastName" value="" id="lastName" />
+                <span></span><br />
+              </div>
+
+              <div class="userInput">
+                <label for="email">E-mail Address</label><br />
+                <input type="text" name="email" value="" id="email" />
+                <span></span><br />
+              </div>
+
+              <div class="userInput">
+                <label for="phone">Phone Number</label><br />
+                <input type="text" name="phone" value="" id="phone" />
+                <span></span><br />
+              </div>
+
+              <div class="userInput">
+                <label for="website">Website Address</label><br />
+                <input type="text" name="website" value="" id="website" />
+                <span></span><br />
+              </div>
+            </fieldset>
+
+            <!-- survey questions -->
+            <fieldset id="questions">
+              <legend>Questions</legend>
+              <div class="radio">
+                <!-- Q1 -->
+                <div class="userInput left">
+                  <p>Choose a time of Day:</p>
+                  <input
+                    type="radio"
+                    name="timeOfDay"
+                    value="morning"
+                    id="timeChoice1"
+                  />
+                  <label for="timeChoice1">Morning</label><br />
+                  <input
+                    type="radio"
+                    name="timeOfDay"
+                    value="night"
+                    id="timeChoice2"
+                  />
+                  <label for="timeChoice2">Night</label><br />
+                </div>
+
+                <!-- Q2 -->
+                <div class="userInput right">
+                  <p>Choose an Animal:</p>
+                  <input
+                    type="radio"
+                    name="animal"
+                    value="cat"
+                    id="animalChoice1"
+                  />
+                  <label for="animalChoice1">Cat</label><br />
+                  <input
+                    type="radio"
+                    name="animal"
+                    value="dog"
+                    id="animalChoice2"
+                  />
+                  <label for="animalChoice2">Dog</label><br />
+                </div>
+              </div>
+
+              <!-- submit -->
+              <input
+                type="submit"
+                name="submit"
+                value="Submit"
+                id="submitButton"
+              />
+            </fieldset>
+          </form>
+        </div>
+        <div class="content-output" id="output"></div>
+        <footer><p>Created by Fridjinah Francois</p></footer>
+      </div>
+    </div>
+  </body>
+</html>
